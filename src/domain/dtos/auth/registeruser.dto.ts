@@ -8,14 +8,14 @@ export class RegisterUserDto {
   ) {}
 
   static create(object: { [key: string]: any }): [string?, RegisterUserDto?] {
-    const { name, email, passowrd } = object
+    const { name, email, password } = object
 
     if (!name) return ['Missing name']
     if (!email) return ['Missing email']
     if (!regularExps.email.test(email)) return ['Email is not valid']
-    if (!passowrd) return ['Missing password']
-    if (passowrd.length < 6) return ['Password to short']
+    if (!password) return ['Missing password']
+    if (password.length < 6) return ['Password to short']
 
-    return [, new RegisterUserDto(name, email, passowrd)]
+    return [, new RegisterUserDto(name, email, password)]
   }
 }
